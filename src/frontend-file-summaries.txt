@@ -1,0 +1,23 @@
+{
+  "frontend/src/App.tsx": "Main application component managing chat state, message history, assistant state, and coordinating between the chat UI and assistant engine.",
+  "frontend/src/components/chat/ChatHeader.tsx": "Header component displaying the bot avatar, title, and subtitle for the Email Writing Assistant.",
+  "frontend/src/components/chat/MessageList.tsx": "Scrollable message list container that renders all chat messages in a centered, responsive layout.",
+  "frontend/src/components/chat/MessageBubble.tsx": "Individual message bubble component with distinct styling for user vs bot messages, including avatar display for bot messages.",
+  "frontend/src/components/chat/Composer.tsx": "Message input composer with textarea and send button, supporting Enter to send and Shift+Enter for new lines.",
+  "frontend/src/components/chat/QuickReplies.tsx": "Quick reply button menu for displaying email type selections and refinement options in the chat flow.",
+  "frontend/src/lib/assistant/types.ts": "TypeScript type definitions for messages, email types, assistant phases, state, and quick replies used throughout the assistant.",
+  "frontend/src/lib/assistant/emailTypes.ts": "Email type definitions with labels and keyword triggers for all 13 supported email categories.",
+  "frontend/src/lib/assistant/intent.ts": "Intent detection logic that identifies email-writing intent and specific email type triggers from user messages.",
+  "frontend/src/lib/assistant/questions.ts": "Question definitions for each email type, including common questions and type-specific guided questions with required/optional flags.",
+  "frontend/src/lib/assistant/templates.ts": "Email draft generation templates for all email types with support for generating alternative drafts that prefer using registered variants when available.",
+  "frontend/src/lib/assistant/refinements.ts": "Refinement logic for adjusting email drafts (tone, length, alternative versions) with updated alternative refinement to use variant templates when available.",
+  "frontend/src/lib/assistant/updates.ts": "Update detection logic for identifying when users want to change previously provided information like tone, dates, or recipients.",
+  "frontend/src/lib/assistant/state.ts": "State management utilities for updating assistant state fields, checking data collection completion, and resetting state.",
+  "frontend/src/lib/assistant/engine.ts": "Core conversation engine that processes user messages, manages conversation flow phases, and generates appropriate bot responses and UI hints with proper null checks for type safety.",
+  "frontend/src/index.css": "Global styles with warm paper-inspired OKLCH color palette (amber/terracotta primary, sage secondary) for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom fonts (Inter, Merriweather), extended color tokens, and warm design system settings.",
+  "frontend/src/main.tsx": "Application entry point with QueryClient provider, removing InternetIdentity provider for open-to-anyone access.",
+  "frontend/index.html": "HTML entry point with custom title and Google Fonts preload for Inter and Merriweather typefaces.",
+  "frontend/src/backend.d.ts": "Backend interface file with comment noting this is a frontend-only app with no backend functionality required.",
+  "frontend/src/lib/assistant/templateVariants.ts": "Registry of additional template variants for follow-up, thank-you, and complaint email types with helper functions to check for and generate variant drafts."
+}

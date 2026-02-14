@@ -1,0 +1,49 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add template variants for Follow-up/Thank You/Complaint and use them for Generate alternative",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Add additional (non-default) template variants for follow-up, thank-you, and complaint/feedback drafts while keeping current templates as defaults.",
+      "acceptanceCriteria": [
+        "For email types 'follow-up', 'thank-you', and 'complaint', the existing template text remains the default draft generated when a user completes the question flow.",
+        "The new user-provided drafts are added as additional variants for their respective email types and are available to be generated without removing or overwriting the existing versions.",
+        "The new variants reflect the user-provided content structure, including the provided subject lines and placeholders (e.g., \"Subject: Following Up - [Original Topic]\", \"Subject: Thank You - [Reason]\", \"Subject: Feedback Regarding [Issue]\")."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/assistant/templateVariants.ts",
+          "operation": "create",
+          "description": "Create a small in-frontend registry for template variants (no persistence) that defines additional draft generators for 'follow-up', 'thank-you', and 'complaint', including the user-provided subject lines and placeholder structure."
+        },
+        {
+          "path": "frontend/src/lib/assistant/templates.ts",
+          "operation": "modify",
+          "description": "Refactor template generation to preserve the current templates as the default output while adding support for generating drafts from additional registered variants (importing from templateVariants). Ensure default generation behavior for all email types remains unchanged."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Update 'Generate alternative' to return an added variant (when available) for follow-up/thank-you/complaint instead of regenerating the same default draft.",
+      "acceptanceCriteria": [
+        "When the user clicks/uses the existing 'Generate alternative' refinement for 'follow-up', 'thank-you', or 'complaint', the returned draft differs from the default template output by using one of the added variants (when variants exist).",
+        "For email types without variants, 'Generate alternative' continues to behave as it does today (no regressions).",
+        "No changes are made to the trigger keywords or email type detection behavior as part of this update."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/assistant/refinements.ts",
+          "operation": "modify",
+          "description": "Change the 'alternative' refinement behavior to prefer selecting an available variant draft for 'follow-up', 'thank-you', and 'complaint' (using currentDraft to avoid returning the same version when possible). Keep existing refinement behavior for email types without variants."
+        },
+        {
+          "path": "frontend/src/lib/assistant/templates.ts",
+          "operation": "modify",
+          "description": "Expose a helper used by refinements to generate an alternative draft by choosing among default + variants for the current email type, without changing email type detection/triggers and without adding backend storage."
+        }
+      ]
+    }
+  ]
+}

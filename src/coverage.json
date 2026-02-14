@@ -1,0 +1,55 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T12:32:08.561Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-11",
+        "summary": "Add the user-provided Follow-up, Thank You, and Complaint/Feedback email drafts as additional template variants (not replacements) while keeping the current templates as the default output for each of these email types.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/lib/assistant/templateVariants.ts",
+          "frontend/src/lib/assistant/templates.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/lib/assistant/templateVariants.ts",
+          "frontend/src/lib/assistant/templates.ts"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Update the 'Generate alternative' refinement behavior so that, for Follow-up, Thank You, and Complaint/Feedback email types, it can produce an alternative draft by selecting an added variant (when available) rather than regenerating the same default template.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/lib/assistant/refinements.ts",
+          "frontend/src/lib/assistant/templates.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/lib/assistant/refinements.ts",
+          "frontend/src/lib/assistant/templates.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/lib/assistant/refinements.ts",
+    "frontend/src/lib/assistant/templateVariants.ts",
+    "frontend/src/lib/assistant/templates.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

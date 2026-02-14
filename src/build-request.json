@@ -1,0 +1,57 @@
+{
+  "kind": "build_request",
+  "title": "Add additional template variants for Follow-up, Thank You, and Complaint/Feedback emails",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Add the user-provided Follow-up, Thank You, and Complaint/Feedback email drafts as additional template variants (not replacements) while keeping the current templates as the default output for each of these email types.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "this added as additional variant"
+        ]
+      },
+      "acceptanceCriteria": [
+        "For email types 'follow-up', 'thank-you', and 'complaint', the existing template text remains the default draft generated when a user completes the question flow.",
+        "The new user-provided drafts are added as additional variants for their respective email types and are available to be generated without removing or overwriting the existing versions.",
+        "The new variants reflect the user-provided content structure, including the provided subject lines and placeholders (e.g., \"Subject: Following Up - [Original Topic]\", \"Subject: Thank You - [Reason]\", \"Subject: Feedback Regarding [Issue]\")."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Update the 'Generate alternative' refinement behavior so that, for Follow-up, Thank You, and Complaint/Feedback email types, it can produce an alternative draft by selecting an added variant (when available) rather than regenerating the same default template.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "build it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When the user clicks/uses the existing 'Generate alternative' refinement for 'follow-up', 'thank-you', or 'complaint', the returned draft differs from the default template output by using one of the added variants (when variants exist).",
+        "For email types without variants, 'Generate alternative' continues to behave as it does today (no regressions).",
+        "No changes are made to the trigger keywords or email type detection behavior as part of this update."
+      ]
+    }
+  ],
+  "constraints": [
+    "Keep the application frontend-only; do not add persistence or template storage to the Motoko backend.",
+    "Do not change existing email type triggers in frontend/src/lib/assistant/emailTypes.ts; keep current triggers and defaults unchanged.",
+    "Do not edit any frontend immutable paths listed in SYSTEM_CONTEXT.frontend.immutablePaths."
+  ],
+  "nonGoals": [
+    "Adding new email types beyond the existing set.",
+    "Changing the guided question flows for these email types (unless strictly necessary to support variant generation).",
+    "Adding authentication or any backend functionality for template storage."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

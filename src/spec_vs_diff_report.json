@@ -1,0 +1,26 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T12:32:08.558Z",
+  "summary": "Diff adds a new variant registry for follow-up/thank-you/complaint templates and wires the 'alternative' refinement to call a dedicated alternative-draft generator. Default templates for these email types remain present in templates.ts. However, the diff summary does not provide visible evidence (due to truncation) that generateAlternativeDraft actually selects the new variants for those email types when 'Generate alternative' is used.",
+  "missing_requirements": [
+    {
+      "id": "REQ-12",
+      "requirement": "Update the 'Generate alternative' refinement behavior so that, for Follow-up, Thank You, and Complaint/Feedback email types, it can produce an alternative draft by selecting an added variant (when available) rather than regenerating the same default template.",
+      "reason": "Although refinements.ts now routes the 'alternative' refinement to generateAlternativeDraft and templates.ts imports the variant helpers, the actual implementation of generateAlternativeDraft is not shown in the provided (truncated) diff, so it cannot be verified that it selects an added variant and returns a draft that differs from the default for these email types.",
+      "evidence": [
+        "frontend/src/lib/assistant/refinements.ts",
+        "frontend/src/lib/assistant/templates.ts (truncated)"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.64,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/lib/assistant/refinements.ts",
+    "frontend/src/lib/assistant/templateVariants.ts",
+    "frontend/src/lib/assistant/templates.ts",
+    "project_state.json"
+  ]
+}

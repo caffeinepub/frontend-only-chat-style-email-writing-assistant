@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-the-user-provided-follow-up-thank-you-and-complaint-feedback-email-drafts-as-additional-template-variants-not-replacements-while-keeping-the-current-templates-as-the-default-output-for-each-of-these-email-types",
+      "featureTitle": "Add the user-provided Follow-up, Thank You, and Complaint/Feedback email drafts as additional template variants (not replacements) while keeping the current templates as the default output for each of these email types.",
+      "files": [
+        "frontend/src/lib/assistant/templateVariants.ts",
+        "frontend/src/lib/assistant/templates.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-generate-alternative-refinement-behavior-so-that-for-follow-up-thank-you-and-complaint-feedback-email-types-it-can-produce-an-alternative-draft-by-selecting-an-added-variant-when-available-rather-than-regenerating-the-same-default-template",
+      "featureTitle": "Update the 'Generate alternative' refinement behavior so that, for Follow-up, Thank You, and Complaint/Feedback email types, it can produce an alternative draft by selecting an added variant (when available) rather than regenerating the same default template.",
+      "files": [
+        "frontend/src/lib/assistant/refinements.ts",
+        "frontend/src/lib/assistant/templates.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

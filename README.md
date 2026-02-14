@@ -1,2 +1,3 @@
-# frontend-only-chat-style-email-writing-assistant
-Exported from Caffeine project: Frontend-only chat-style Email Writing Assistant
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
